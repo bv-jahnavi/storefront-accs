@@ -29,3 +29,126 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+/* ===== Showcase variant — image cards with centered overlaid text ===== */
+.cards.showcase > ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.cards.showcase > ul > li {
+  position: relative;
+  border: 0;
+  overflow: hidden;
+}
+
+/* subtle dark scrim so overlaid white text stays readable */
+.cards.showcase > ul > li::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgb(0 0 0 / 20%);
+  pointer-events: none;
+}
+
+.cards.showcase .cards-card-image {
+  line-height: 0;
+}
+
+.cards.showcase .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 705 / 400;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.cards.showcase > ul > li:hover .cards-card-image img {
+  transform: scale(1.05);
+}
+
+/* overlaid, centered text */
+.cards.showcase .cards-card-body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0;
+  padding: 24px;
+  text-align: center;
+}
+
+.cards.showcase .cards-card-body h2,
+.cards.showcase .cards-card-body h3,
+.cards.showcase .cards-card-body h4 {
+  margin: 0;
+  color: #fff;
+  font-size: var(--heading-font-size-m, 24px);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.cards.showcase .cards-card-body p {
+  margin: 0;
+  color: #fff;
+  font-size: var(--body-font-size-m, 16px);
+}
+
+/* underline-on-hover for the title link (inside the heading) */
+.cards.showcase .cards-card-body :is(h2, h3, h4) a {
+  color: #fff;
+  background-image: linear-gradient(currentcolor, currentcolor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size 0.3s;
+}
+
+.cards.showcase > ul > li:hover .cards-card-body :is(h2, h3, h4) a {
+  background-size: 100% 1px;
+}
+
+/* white CTA button — the standalone link in its own paragraph */
+.cards.showcase > ul > li .cards-card-body p > a:only-child {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 40px;
+  background-color: #fff;
+  color: var(--secondary-color, #252525);
+  font-weight: 500;
+  text-transform: none;
+  transition: 0.3s;
+}
+
+.cards.showcase > ul > li .cards-card-body p > a:only-child:hover {
+  background-color: var(--primary-color, #a47551);
+  color: #fff;
+}
+
+/* asymmetric 1 + 2 layout on desktop */
+@media (min-width: 900px) {
+  .cards.showcase > ul {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+  }
+
+  /* first card spans both rows on the left */
+  .cards.showcase > ul > li:first-child {
+    grid-row: 1 / span 2;
+  }
+
+  .cards.showcase > ul > li:first-child .cards-card-image img {
+    aspect-ratio: 705 / 600;
+  }
+
+  .cards.showcase > ul > li:not(:first-child) .cards-card-image img {
+    aspect-ratio: 705 / 290;
+  }
+}
