@@ -654,6 +654,8 @@ main .section.featured-collection > div > h2 strong {
     font-size: 40px;
     line-height: 48px;
   }
+}
+
 .section[data-background="bg-primary"] {
   background-color: var(--primary-color);
 }
