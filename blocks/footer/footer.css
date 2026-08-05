@@ -71,3 +71,141 @@ footer .footer p {
         padding: 40px 32px 24px;
     }
 }
+
+/* ===== Vinfur footer layout ===== */
+/* stylelint-disable no-descending-specificity */
+footer .footer {
+    color: var(--secondary-color, #252525);
+}
+
+/* four-column body — .footer-columns is a block: > div (row) > div (cell) */
+footer .footer-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+/* each column's inner cell */
+footer .footer-columns > div > div {
+    color: var(--color-neutral-700, #666);
+}
+
+/* logo (first column) */
+footer .footer-columns > div:first-child img {
+    max-width: 165px;
+    height: auto;
+    margin-bottom: 24px;
+}
+
+footer .footer-columns > div:first-child p {
+    margin: 0 0 12px;
+}
+
+/* social row = the paragraph holding multiple links in column 1 */
+footer .footer-columns > div:first-child p:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+footer .footer-columns > div:first-child p:last-child a {
+    color: var(--secondary-color, #252525);
+    font-weight: 500;
+}
+
+/* column headings */
+footer .footer-columns h5 {
+    margin: 0 0 24px;
+    color: var(--secondary-color, #252525);
+    font-size: var(--heading-font-size-s, 20px);
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* link lists */
+footer .footer-columns ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+footer .footer-columns a {
+    color: var(--color-neutral-700, #666);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .footer-columns li a:hover {
+    color: var(--primary-color, #a47551);
+}
+
+/* newsletter (last column) paragraph + submit button */
+footer .footer-columns > div:last-child p {
+    margin: 0 0 24px;
+}
+
+footer .footer-columns > div:last-child p:last-child a {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 32px;
+    border: 1px solid var(--secondary-color, #252525);
+    color: var(--secondary-color, #252525);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+footer .footer-columns > div:last-child p:last-child a:hover {
+    background-color: var(--primary-color, #a47551);
+    border-color: var(--primary-color, #a47551);
+    color: #fff;
+}
+
+/* bottom bar — the plain-content section after the columns block */
+footer .footer .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 1px solid rgb(176 176 176 / 30%);
+    text-align: center;
+}
+
+footer .footer .default-content-wrapper p {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+}
+
+/* payment icons — the paragraph containing multiple images */
+footer .footer .default-content-wrapper p img {
+    width: 40px;
+    height: 25px;
+    object-fit: contain;
+}
+
+/* legal links spacing */
+footer .footer .default-content-wrapper p a {
+    color: var(--secondary-color, #252525);
+    text-decoration: none;
+}
+
+@media (min-width: 900px) {
+    footer .footer-columns {
+        grid-template-columns: 3fr 2fr 2fr 3fr;
+        gap: 30px;
+    }
+
+    footer .footer .default-content-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
