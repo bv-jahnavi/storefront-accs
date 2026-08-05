@@ -39,6 +39,7 @@
 .promo-banner .promo-banner-content h1,
 .promo-banner .promo-banner-content h2,
 .promo-banner .promo-banner-content h3 {
+  max-width: 18ch;
   margin: 0 0 24px;
   color: var(--promo-banner-text);
   font-weight: 500;
@@ -47,6 +48,7 @@
 }
 
 .promo-banner .promo-banner-content p {
+  max-width: 40ch;
   margin: 0 0 40px;
   color: var(--promo-banner-text);
   font-size: var(--body-font-size-m, 16px);
@@ -58,13 +60,16 @@
   align-items: center;
   justify-content: center;
   gap: 13px;
-  margin: 0 0 40px;
-  padding: 16px 24px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 0 48px;
+  padding: 20px 24px;
   border: 1px solid #b5b5b5;
 }
 
 .promo-banner .promo-banner-countdown-item {
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   min-width: 56px;
