@@ -1,9 +1,10 @@
-// Inline SVG icons for the service features (stroke-based, inherit currentColor)
+// Inline SVG icons for the service features (stroke-based, inherit currentColor).
+// Icons match the reference: 3D box, credit card, return box, life-ring.
 const ICONS = {
-  shipping: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 6h16v14H2zM18 10h6l4 4v6h-10z"/><circle cx="8" cy="24" r="2.5"/><circle cx="23" cy="24" r="2.5"/></svg>',
-  payment: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="26" height="18" rx="2"/><path d="M3 13h26"/><path d="M7 20h6"/></svg>',
-  return: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 12a10 10 0 1 1-2 6"/><path d="M3 6v6h6"/></svg>',
-  support: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 18v-3a10 10 0 0 1 20 0v3"/><rect x="3" y="18" width="5" height="8" rx="1.5"/><rect x="24" y="18" width="5" height="8" rx="1.5"/><path d="M26 26a6 6 0 0 1-6 5h-4"/></svg>',
+  shipping: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M16 4l11 6v12l-11 6-11-6V10z"/><path d="M5 10l11 6 11-6"/><path d="M16 16v12"/></svg>',
+  payment: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="4" y="8" width="24" height="16" rx="2"/><path d="M4 13h24"/><path d="M7 19h5"/></svg>',
+  return: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" aria-hidden="true"><path d="M6 11l10-5 10 5v10l-10 5-10-5z"/><path d="M6 11l10 5 10-5"/><path d="M16 16v10"/><circle cx="23" cy="9" r="4.5" fill="var(--background-color, #fff)"/><path d="M25 8.2a2.2 2.2 0 1 0 .3 2" stroke-width="1.2"/><path d="M24.6 6.6v1.6h-1.6" stroke-width="1.2"/></svg>',
+  support: '<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="5"/><path d="M7.5 7.5l4.9 4.9M19.6 19.6l4.9 4.9M24.5 7.5l-4.9 4.9M12.4 19.6l-4.9 4.9"/></svg>',
 };
 
 /**
