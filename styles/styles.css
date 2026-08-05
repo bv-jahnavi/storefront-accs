@@ -593,6 +593,50 @@ main .section[data-margin="xxhuge"] {
     margin: var(--spacing-xxhuge) 0;
 }
 
+/* section title (uppercase) - matches reference section headings */
+main .section.text-uppercase > div > h1,
+main .section.text-uppercase > div > h2,
+main .section.text-uppercase > div > h3 {
+  text-transform: uppercase;
+}
+
+/* Featured Collection section title - matches reference design */
+main .section.featured-collection > div > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xsmall);
+  margin-top: 0;
+  margin-bottom: var(--spacing-big);
+  font-family: var(--type-base-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+/* small decorative marker before the title, like the reference */
+main .section.featured-collection > div > h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+}
+
+main .section.featured-collection > div > h2 strong {
+  font-weight: 500;
+}
+
+@media (min-width: 900px) {
+  main .section.featured-collection > div > h2 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
 /* section metadata - styles - end */
 
 /* Base Design System Tokens */
