@@ -1,5 +1,9 @@
 /* Promo Banner — two-column countdown banner, matching reference design */
 
+main > .section.promo-banner-container {
+  margin: 0;
+}
+
 .promo-banner.block {
   --promo-banner-primary: var(--primary-color, #a47551);
   --promo-banner-bg: rgb(164 117 81 / 10%);
@@ -94,6 +98,11 @@
   font-size: 40px;
   font-weight: 500;
   line-height: 1.1;
+}
+
+main > .section > div.promo-banner-wrapper {
+  max-width: 100%;
+  padding: 0;
 }
 
 /* button — solid brown, square, matching reference */
