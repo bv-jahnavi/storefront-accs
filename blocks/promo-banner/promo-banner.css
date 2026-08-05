@@ -1,9 +1,9 @@
 /* Promo Banner — two-column countdown banner, matching reference design */
 
 .promo-banner.block {
-  --promo-banner-primary: #a47551;
+  --promo-banner-primary: var(--primary-color, #a47551);
   --promo-banner-bg: rgb(164 117 81 / 10%);
-  --promo-banner-text: #252525;
+  --promo-banner-text: var(--secondary-color, #252525);
 
   display: grid;
   grid-template-columns: 1fr;

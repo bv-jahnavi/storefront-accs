@@ -1,5 +1,4 @@
 import {
-  buildBlock,
   loadHeader,
   loadFooter,
   decorateIcons,
@@ -57,7 +56,6 @@ function buildAutoBlocks(main) {
         });
       });
     }
-
   } catch (error) {
     console.error('Auto Blocking failed', error);
   }
