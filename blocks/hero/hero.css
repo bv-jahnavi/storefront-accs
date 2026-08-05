@@ -112,30 +112,37 @@
 
 .hero.promo a.button:any-link {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
   border: 0;
   border-radius: 0;
-  padding: 14px 40px;
+  padding: 0 40px;
   background-color: #fff;
   color: var(--secondary-color, #252525);
+  font-size: var(--body-font-size-m, 16px);
   font-weight: 500;
   text-transform: none;
   overflow: hidden;
   transition: 0.3s;
 }
 
+/* dark shine sweep — matches reference .animate-btn.animate-dark */
 .hero.promo a.button:any-link::after {
   content: "";
   position: absolute;
   top: 0;
-  left: -75%;
-  width: 50%;
+  left: -100%;
+  width: 100%;
   height: 100%;
-  background-image: linear-gradient(90deg, transparent, rgb(0 0 0 / 20%), transparent);
-  transform: skewX(-25deg);
+  background-image: linear-gradient(90deg, transparent, rgb(0 0 0 / 70%), transparent);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .hero.promo a.button:any-link:hover::after {
-  animation: hero-promo-shine 0.75s;
+  animation: hero-promo-shine 1s ease forwards;
 }
 
 .hero.promo a.button:hover {
@@ -155,8 +162,12 @@
 }
 
 @keyframes hero-promo-shine {
+  0% {
+    left: 100%;
+  }
+
   100% {
-    left: 125%;
+    left: -100%;
   }
 }
 
