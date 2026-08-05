@@ -35,3 +35,141 @@
     padding: 40px 32px;
   }
 }
+
+/* ===== Promo variant — full-width image banner with centered CTA ===== */
+.hero.promo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  padding: 48px 24px;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* dark overlay over the background image */
+.hero.promo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgb(0 0 0 / 33.3%);
+}
+
+/* centered content sits above the overlay (last row = text + CTA) */
+.hero.promo > div:last-child {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  animation: hero-promo-fade-up 0.8s ease both;
+}
+
+/* the background image row is positioned to fill the banner */
+.hero.promo > div:first-child {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+}
+
+.hero.promo > div:first-child > div,
+.hero.promo picture {
+  width: 100%;
+  height: 100%;
+}
+
+.hero.promo picture {
+  position: absolute;
+  inset: 0;
+}
+
+.hero.promo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero.promo h1,
+.hero.promo h2,
+.hero.promo h3 {
+  margin: 0 0 24px;
+  color: var(--color-neutral-50, #fff);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.hero.promo p {
+  margin: 0 0 40px;
+  color: var(--color-neutral-50, #fff);
+  font-size: var(--body-font-size-m, 16px);
+}
+
+/* button — white fill with dark shine-sweep on hover, matching reference */
+.hero.promo p.button-wrapper {
+  margin: 0;
+}
+
+.hero.promo a.button:any-link {
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  padding: 14px 40px;
+  background-color: var(--color-neutral-50, #fff);
+  color: var(--text-color, #252525);
+  font-weight: 500;
+  text-transform: none;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+/* animated shine sweep across the button on hover */
+.hero.promo a.button:any-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(90deg, transparent, rgb(0 0 0 / 20%), transparent);
+  transform: skewX(-25deg);
+}
+
+.hero.promo a.button:any-link:hover::after {
+  animation: hero-promo-shine 0.75s;
+}
+
+.hero.promo a.button:hover {
+  background-color: var(--color-neutral-50, #fff);
+}
+
+@keyframes hero-promo-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-promo-shine {
+  100% {
+    left: 125%;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero.promo {
+    min-height: 344px;
+    padding: 64px 32px;
+  }
+
+  .hero.promo h1,
+  .hero.promo h2,
+  .hero.promo h3 {
+    font-size: 40px;
+  }
+}
