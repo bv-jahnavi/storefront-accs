@@ -1,0 +1,144 @@
+/* Instagram Feed — centered "Follow our gram" + scattered photos, per reference */
+
+.instagram-feed.block {
+  --if-text: var(--secondary-color, #252525);
+  --if-primary: var(--primary-color, #a47551);
+
+  position: relative;
+  padding: 48px 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* centered heading + handle button, above the images */
+.instagram-feed-content {
+  position: relative;
+  z-index: 2;
+}
+
+.instagram-feed-content h2 {
+  margin: 0 0 40px;
+  color: var(--if-text);
+  font-size: var(--heading-font-size-l, 36px);
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+/* bordered @handle button, fills with brand color on hover */
+.instagram-feed-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 70px;
+  border: 1px solid var(--color-neutral-500, #ababab);
+  color: var(--if-text);
+  font-size: var(--heading-font-size-s, 20px);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.instagram-feed-handle:hover {
+  border-color: var(--if-primary);
+  background-color: var(--if-primary);
+  color: #fff;
+}
+
+/* scattered images */
+.instagram-feed-gallery {
+  position: relative;
+  z-index: 1;
+}
+
+.instagram-feed-img {
+  overflow: hidden;
+}
+
+.instagram-feed-img picture,
+.instagram-feed-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+.instagram-feed-img:hover img {
+  transform: scale(1.06);
+}
+
+/* ---- mobile: simple 2-column strip below the content ---- */
+@media (max-width: 899px) {
+  .instagram-feed-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .instagram-feed-img {
+    aspect-ratio: 1;
+  }
+
+  .instagram-feed-img-5 {
+    display: none;
+  }
+}
+
+/* ---- desktop: absolutely-positioned scatter matching the reference ---- */
+@media (min-width: 900px) {
+  .instagram-feed.block {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* gallery spans the whole section so % widths resolve against full width */
+  .instagram-feed-gallery {
+    position: absolute;
+    inset: 0;
+  }
+
+  .instagram-feed-img {
+    position: absolute;
+  }
+
+  /* each image keeps its natural aspect ratio so height is non-zero */
+  .instagram-feed-img-1 {
+    left: 6%;
+    top: 13%;
+    width: 16%;
+    aspect-ratio: 313 / 328;
+  }
+
+  .instagram-feed-img-2 {
+    left: 0;
+    top: 53%;
+    width: 10%;
+    aspect-ratio: 198 / 186;
+  }
+
+  .instagram-feed-img-3 {
+    left: 14%;
+    top: 57%;
+    width: 12.5%;
+    aspect-ratio: 242 / 253;
+  }
+
+  .instagram-feed-img-4 {
+    right: 5%;
+    top: 24%;
+    width: 17%;
+    aspect-ratio: 330 / 345;
+  }
+
+  .instagram-feed-img-5 {
+    right: 13%;
+    top: 53%;
+    width: 12.5%;
+    aspect-ratio: 244 / 255;
+  }
+}
