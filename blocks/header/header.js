@@ -186,33 +186,6 @@ export default async function decorate(block) {
     brandLink.closest('.button-container').className = '';
   }
 
-  const navSections = nav.querySelector('.nav-sections');
-  if (navSections) {
-    navSections
-      .querySelectorAll(':scope .default-content-wrapper > ul > li')
-      .forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-        setupSubmenu(navSection);
-        navSection.addEventListener('click', (event) => {
-          if (event.target.tagName === 'A') return;
-          if (!isDesktop.matches) {
-            navSection.classList.toggle('active');
-          }
-        });
-        navSection.addEventListener('mouseenter', () => {
-          toggleAllNavSections(navSections);
-          if (isDesktop.matches) {
-            if (!navSection.classList.contains('nav-drop')) {
-              overlay.classList.remove('show');
-              return;
-            }
-            navSection.setAttribute('aria-expanded', 'true');
-            overlay.classList.add('show');
-          }
-        });
-      });
-  }
-
   const navTools = nav.querySelector('.nav-tools');
 
   /** Wishlist */
@@ -459,6 +432,33 @@ export default async function decorate(block) {
   }
 
   searchButton.addEventListener('click', () => toggleSearch(!searchPanel.classList.contains('nav-tools-panel--show')));
+
+  const navSections = nav.querySelector('.nav-sections');
+  if (navSections) {
+    navSections
+      .querySelectorAll(':scope .default-content-wrapper > ul > li')
+      .forEach((navSection) => {
+        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+        setupSubmenu(navSection);
+        navSection.addEventListener('click', (event) => {
+          if (event.target.tagName === 'A') return;
+          if (!isDesktop.matches) {
+            navSection.classList.toggle('active');
+          }
+        });
+        navSection.addEventListener('mouseenter', () => {
+          toggleAllNavSections(navSections);
+          if (isDesktop.matches) {
+            if (!navSection.classList.contains('nav-drop')) {
+              overlay.classList.remove('show');
+              return;
+            }
+            navSection.setAttribute('aria-expanded', 'true');
+            overlay.classList.add('show');
+          }
+        });
+      });
+  }
 
   navTools.querySelector('.nav-search-button').addEventListener('click', () => {
     if (isDesktop.matches) {

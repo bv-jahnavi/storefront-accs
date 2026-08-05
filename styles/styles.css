@@ -13,6 +13,15 @@
 /* stylelint-disable no-empty-source */
 :root, .dropin-design {
   /* Adobe Commerce Dropin design tokens */
+  --black: #000;
+  --white: #fff;
+  --yellow: #ffc108;
+  --red: #9d0101;
+  --line: #ebebeb;
+  --primary-color: #a47551;
+  --secondary-color: #252525;
+  --color-c1a286: #c1a286;
+  --color-gold: #9c8853;
   --color-brand-300: #6d6d6d;
   --color-brand-500: #454545;
   --color-brand-600: #383838;
@@ -149,12 +158,22 @@ body {
   font: var(--type-body-1-default-font);
   letter-spacing: var(--type-body-1-default-letter-spacing);
   margin: 0;
-  color: var(--color-neutral-800);
+  color: var(--secondary-color);
   background-color: var(--background-color);
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 100%;
   -webkit-font-smoothing: antialiased;
+}
+
+body::-webkit-scrollbar {
+  width: 7px;
+  background-color: var(--line);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 999px;
 }
 
 body:not(.appear) {
@@ -563,6 +582,14 @@ main .section[data-margin="xhuge"] {
 
 main .section[data-margin="xxhuge"] {
     margin: var(--spacing-xxhuge) 0;
+}
+
+.section[data-background="bg-primary"] {
+  background-color: var(--primary-color);
+}
+
+.text-white {
+  color: var(--white);
 }
 
 /* section metadata - styles - end */
