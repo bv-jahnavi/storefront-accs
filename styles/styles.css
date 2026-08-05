@@ -135,8 +135,29 @@
 
   /* Additional tokens */
   --type-fixed-font-family: adobe-clean, "Roboto Mono", menlo, consolas, "Liberation Mono", monospace, system-ui, sans-serif;
-  --background-color: var(--color-neutral-50);
   --nav-height: 6.4rem;
+
+  /* Reference design tokens (home page sections) */
+  --text-color: #252525;
+  --link-color: #252525;
+  --link-hover-color: #000;
+  --background-color: #fff;
+  --overlay-background-color: #eee;
+  --highlight-background-color: #ccc;
+
+  /* heading sizes */
+  --heading-font-size-xxl: 60px;
+  --heading-font-size-xl: 48px;
+  --heading-font-size-l: 36px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 18px;
+
+  /* body sizes */
+  --body-font-size-xl: 20px;
+  --body-font-size-l: 18px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
 }
 
 /* fallback font */
@@ -156,6 +177,7 @@ html {
 
 body {
   font: var(--type-body-1-default-font);
+  font-size: var(--body-font-size-m);
   letter-spacing: var(--type-body-1-default-letter-spacing);
   margin: 0;
   color: var(--secondary-color);
@@ -217,31 +239,37 @@ h6 {
 
 h1 {
   font: var(--type-display-1-font);
+  font-size: var(--heading-font-size-xxl);
   letter-spacing: var(--type-display-1-letter-spacing);
 }
 
 h2 {
   font: var(--type-display-2-font);
+  font-size: var(--heading-font-size-xl);
   letter-spacing: var(--type-display-2-letter-spacing);
 }
 
 h3 {
   font: var(--type-display-3-font);
+  font-size: var(--heading-font-size-l);
   letter-spacing: var(--type-display-3-letter-spacing);
 }
 
 h4 {
   font: var(--type-headline-1-font);
+  font-size: var(--heading-font-size-m);
   letter-spacing: var(--type-headline-1-letter-spacing);
 }
 
 h5 {
   font: var(--type-headline-2-strong-font);
+  font-size: var(--heading-font-size-s);
   letter-spacing: var(--type-headline-2-strong-letter-spacing);
 }
 
 h6 {
   font: var(--type-headline-2-default-font);
+  font-size: var(--heading-font-size-xs);
   letter-spacing: var(--type-headline-2-default-letter-spacing);
 }
 
@@ -294,7 +322,7 @@ button {
 
 /* links */
 a:not(.dropin-design a) {
-  color: var(--color-brand-500);
+  color: var(--link-color);
   font: var(--type-body-1-strong-font);
   letter-spacing: var(--type-body-1-strong-letter-spacing);
   text-decoration: none;
@@ -302,7 +330,7 @@ a:not(.dropin-design a) {
 }
 
 a:not(.dropin-design a):hover {
-  color: var(--color-brand-600);
+  color: var(--link-hover-color);
   text-decoration: underline;
 }
 
@@ -584,6 +612,48 @@ main .section[data-margin="xxhuge"] {
     margin: var(--spacing-xxhuge) 0;
 }
 
+/* section title (uppercase) - matches reference section headings */
+main .section.text-uppercase > div > h1,
+main .section.text-uppercase > div > h2,
+main .section.text-uppercase > div > h3 {
+  text-transform: uppercase;
+}
+
+/* Featured Collection section title - matches reference design */
+main .section.featured-collection > div > h2 {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xsmall);
+  margin-top: 0;
+  margin-bottom: var(--spacing-big);
+  font-family: var(--type-base-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: normal;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+/* small decorative marker before the title, like the reference */
+main .section.featured-collection > div > h2::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--text-color);
+}
+
+main .section.featured-collection > div > h2 strong {
+  font-weight: 500;
+}
+
+@media (min-width: 900px) {
+  main .section.featured-collection > div > h2 {
+    font-size: 40px;
+    line-height: 48px;
+  }
 .section[data-background="bg-primary"] {
   background-color: var(--primary-color);
 }
