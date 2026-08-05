@@ -1,0 +1,165 @@
+/* Promo Banner — two-column countdown banner, matching reference design */
+
+.promo-banner.block {
+  --promo-banner-primary: #a47551;
+  --promo-banner-bg: rgb(164 117 81 / 10%);
+  --promo-banner-text: #252525;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background-color: var(--promo-banner-bg);
+}
+
+/* image column */
+.promo-banner .promo-banner-image {
+  position: relative;
+  min-height: 280px;
+}
+
+.promo-banner .promo-banner-image picture,
+.promo-banner .promo-banner-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* content column */
+.promo-banner .promo-banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  animation: promo-banner-fade-up 0.8s ease both;
+}
+
+.promo-banner .promo-banner-content h1,
+.promo-banner .promo-banner-content h2,
+.promo-banner .promo-banner-content h3 {
+  margin: 0 0 24px;
+  color: var(--promo-banner-text);
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.promo-banner .promo-banner-content p {
+  margin: 0 0 40px;
+  color: var(--promo-banner-text);
+  font-size: var(--body-font-size-m, 16px);
+}
+
+/* countdown timer box */
+.promo-banner .promo-banner-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  margin: 0 0 40px;
+  padding: 16px 24px;
+  border: 1px solid #b5b5b5;
+}
+
+.promo-banner .promo-banner-countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 56px;
+}
+
+.promo-banner .promo-banner-countdown-value {
+  color: var(--promo-banner-primary);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.promo-banner .promo-banner-countdown-label {
+  margin-top: 4px;
+  color: var(--promo-banner-text);
+  font-size: var(--body-font-size-m, 16px);
+}
+
+.promo-banner .promo-banner-countdown-sep {
+  align-self: flex-start;
+  color: var(--promo-banner-primary);
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* button — solid brown, square, matching reference */
+.promo-banner .promo-banner-content p.button-wrapper {
+  margin: 0;
+}
+
+.promo-banner .promo-banner-content a.button:any-link {
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  padding: 14px 40px;
+  background-color: var(--promo-banner-primary);
+  color: #fff;
+  font-weight: 500;
+  text-transform: none;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+/* animated dark shine sweep on hover (matches reference animate-btn) */
+.promo-banner .promo-banner-content a.button:any-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background-image: linear-gradient(90deg, transparent, rgb(0 0 0 / 20%), transparent);
+  transform: skewX(-25deg);
+}
+
+.promo-banner .promo-banner-content a.button:any-link:hover::after {
+  animation: promo-banner-shine 0.75s;
+}
+
+.promo-banner .promo-banner-content a.button:hover {
+  background-color: var(--promo-banner-primary);
+}
+
+@keyframes promo-banner-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes promo-banner-shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/* desktop — two columns side by side */
+@media (min-width: 900px) {
+  .promo-banner.block {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .promo-banner .promo-banner-content {
+    padding: 80px 40px;
+  }
+
+  .promo-banner .promo-banner-content h1,
+  .promo-banner .promo-banner-content h2,
+  .promo-banner .promo-banner-content h3 {
+    font-size: 40px;
+  }
+}
