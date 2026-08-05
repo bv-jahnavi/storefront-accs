@@ -1,0 +1,109 @@
+/* Category Grid — circular category tiles with hover zoom, matching reference design */
+
+.category-grid.block {
+  --category-grid-size: 100px;
+}
+
+.category-grid-list {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.category-grid-list::-webkit-scrollbar {
+  display: none;
+}
+
+.category-grid-item {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  scroll-snap-align: start;
+}
+
+/* circular image with clipped overflow for the zoom effect */
+.category-grid-image {
+  position: relative;
+  display: block;
+  width: var(--category-grid-size);
+  height: var(--category-grid-size);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.category-grid-image picture,
+.category-grid-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* hover zoom animation (from reference: .hover-image) */
+.category-grid-item.hover-image * {
+  transition: 0.5s cubic-bezier(0.5, 1, 0.89, 1);
+  will-change: transform;
+}
+
+.category-grid-item.hover-image:hover .category-grid-image img {
+  transform: scale(1.1);
+}
+
+/* label */
+.category-grid-label {
+  text-align: center;
+}
+
+.category-grid-label a {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--color-neutral-900, #252525);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.category-grid-label a:hover {
+  text-decoration: underline;
+}
+
+/* tablet */
+@media (min-width: 600px) {
+  .category-grid.block {
+    --category-grid-size: 120px;
+  }
+
+  .category-grid-list {
+    gap: 24px;
+  }
+}
+
+/* desktop — fit all tiles, no scroll */
+@media (min-width: 900px) {
+  .category-grid.block {
+    --category-grid-size: 135px;
+  }
+
+  .category-grid-list {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: visible;
+  }
+
+  .category-grid-item {
+    flex: 1 1 0;
+  }
+
+  .category-grid-label a {
+    font-size: 20px;
+  }
+}
